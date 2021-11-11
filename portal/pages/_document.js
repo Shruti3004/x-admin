@@ -11,6 +11,10 @@ class MyDocument extends Document {
       <Html lang="en" className="notranslate" translate="no">
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <script
+            src="https://kit.fontawesome.com/bd43ee06c8.js"
+            crossorigin="anonymous"
+          ></script>
         </Head>
         <body>
           <Main />

@@ -3,7 +3,7 @@ import { getSession, session } from "next-auth/client";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
-    const response = await axios.get(`${process.env.CAPTCHA_URL}/verify`, {
+    const response = await axios.get(`http://localhost:9000/verify`, {
       params: req.body,
     });
     const responseObject = response.data;
@@ -13,7 +13,7 @@ const handler = async (req, res) => {
   }
   if (req.method === "GET") {
     try {
-      const response = await axios.get(`${process.env.CAPTCHA_URL}/`);
+      const response = await axios.get(`http://localhost:9000/`);
       if (response.data) {
         res.setHeader("token", response.headers.token);
         res.status(200).json(response.data);

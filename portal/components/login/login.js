@@ -64,7 +64,7 @@ export default function Login(props) {
     e.preventDefault();
     let rightNow = new Date();
 
-    try{  
+    try{
       const result = await axios({
         method: "POST",
         url: `${process.env.NEXT_PUBLIC_CAPTCHA_URL}`,
@@ -79,20 +79,20 @@ export default function Login(props) {
       return false;
     }
 
-    const parsedBase64Key = CryptoJS.enc.Base64.parse(process.env.NEXT_PUBLIC_BASE64_KEY);
-    let encryptedUsername = CryptoJS.AES.encrypt(input.username, parsedBase64Key, {
-      mode: CryptoJS.mode.ECB,
-      padding: CryptoJS.pad.Pkcs7
-    })
-    encryptedUsername = encryptedUsername.toString();      
-    const encryptedPassword = CryptoJS.AES.encrypt(input.password, parsedBase64Key, {
-      mode: CryptoJS.mode.ECB,
-      padding: CryptoJS.pad.Pkcs7
-    }).toString();
+    // const parsedBase64Key = CryptoJS.enc.Base64.parse(process.env.NEXT_PUBLIC_BASE64_KEY);
+    // let encryptedUsername = CryptoJS.AES.encrypt(input.username, parsedBase64Key, {
+    //   mode: CryptoJS.mode.ECB,
+    //   padding: CryptoJS.pad.Pkcs7
+    // })
+    // encryptedUsername = encryptedUsername.toString();
+    // const encryptedPassword = CryptoJS.AES.encrypt(input.password, parsedBase64Key, {
+    //   mode: CryptoJS.mode.ECB,
+    //   padding: CryptoJS.pad.Pkcs7
+    // }).toString();
 
     const { error, url } = await signIn("fusionauth", {
-      loginId: encryptedUsername,
-      password: encryptedPassword,
+      loginId: input.username,
+      password: input.password,
       applicationId: persona.applicationId,
       redirect: false,
       callbackUrl: `${
@@ -149,7 +149,7 @@ export default function Login(props) {
           type={"text"}
           name={"captcha"}
           autoComplete={"off"}
-          required={"required"}
+          // required={"required"}
           placeholder={"Captcha"}
           onChange={handleInputCaptcha}
         />

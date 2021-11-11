@@ -13,6 +13,8 @@ const handler = async (req, res) => {
       });
 
       const responseObject = response.data;
+      console.log("RESPONSE", responseObject);
+      console.log(process.env.HASURA_URL)
       if (responseObject) {
         res.status(200).json(responseObject);
       }

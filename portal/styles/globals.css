@@ -1,10 +1,31 @@
+/* Font family */
+@font-face {
+  font-family: Mulish-bold;
+  src: url("../fonts/Mulish-Bold.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: Mulish-demi;
+  src: url("../fonts/Mulish-Demi.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: Mulish-medium;
+  src: url("../fonts/Mulish-Medium.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: Mulish-regular;
+  src: url("../fonts/Mulish-Regular.ttf");
+  font-display: swap;
+}
+
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Martel Sans", -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
+  font-family: Mulish-regular;
   text-rendering: optimizeLegibility;
 }
 
@@ -18,7 +39,7 @@ a {
 }
 
 /*
- * FONT FACE 
+ * FONT FACE
  */
 @font-face {
   font-family: "Bahnschrift";
@@ -73,7 +94,7 @@ a {
   line-height: 1.5;
 }
 
-/** 
+/**
 * UTIL CLASSES
 */
 
@@ -142,4 +163,8 @@ a {
     width: 100%;
     flex-direction: column;
   } */
+}
+
+.light-theme-icon{
+  color: yellow;
 }
